@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -49,6 +50,7 @@ public class ProdutosController {
 	
 	//Obrigatoriamente o BindingResult deve vir depois do @Valid Produto
 	@RequestMapping(method=RequestMethod.POST) 
+	@CacheEvict(value="produtosHome", allEntries=true) // -> Atualizar o cache produtosHome 
 	public ModelAndView grava(MultipartFile sumario, @Valid Produto produto, 
 			BindingResult result, RedirectAttributes redirectAttributes){
 		
@@ -80,5 +82,12 @@ public class ProdutosController {
 		modelAndView.addObject("produto", produto);
 		return modelAndView;
 	}
+	
+//	Retornar JSON via URL comum
+//	@RequestMapping("/{id}")
+//	@ResponseBody // -> Responder via Json (depende de framework. ex: jackson)
+//	public Produto detalheJson(@PathVariable("id") Integer id){
+//		return produtoDao.find(id);
+//	}
 
 }

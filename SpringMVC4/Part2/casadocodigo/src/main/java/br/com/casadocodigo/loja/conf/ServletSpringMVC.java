@@ -9,15 +9,17 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletInitializer{
 
+	//Os metodos são inicializados nessa ordem, por isos pode haver erro na injecao de dependencia dependendo da ordem que for usado
+	
 	@Override
-	protected Class<?>[] getRootConfigClasses() {
-		// TODO Auto-generated method stub
-		return null;
+	protected Class<?>[] getRootConfigClasses() { 
+		//Identifica as classes de condiguração
+		return new Class[]{SecurityConfiguration.class, AppWebConfiguration.class, JPAConfiguration.class};
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[] {AppWebConfiguration.class, JPAConfiguration.class}; //Identifica as classes de condiguração
+		return new Class[] {}; //Identifica as classes de condiguração
 	}
 
 	@Override
@@ -32,8 +34,9 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 		return new Filter[] {encodingFilter};
 	}
 	
-	@Override //string em branco por que quer tratar o arquivo do mesmo jeito que foi recebido
+	@Override 
 	protected void customizeRegistration(Dynamic registration) { 
-		registration.setMultipartConfig(new MultipartConfigElement("")); 
+		//string em branco por que quer tratar o arquivo do mesmo jeito que foi recebido, (sem seperador por exemplo)
+		registration.setMultipartConfig(new MultipartConfigElement(""));  
 	}
 }

@@ -1,37 +1,43 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" 
+	pageEncoding="UTF-8" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Casa do Codigo</title>
-</head>
-<body>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
-	<h1>Lista de Produtos</h1>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="tags" %>
 
-	<div>${sucesso }</div>
-	<div>${falha }</div>
+<tags:pageTemplate title="Lista de Produtos">
 
-	<table>
-		<tr>
-			<td>Título</td>
-			<td>Descrição</td>
-			<td>Páginas</td>
-		</tr>
-		<c:forEach items="${produtos }" var="produto">
-			<tr>
-				<td>
-					<a href="produtos/detalhe/${produto.id }">${produto.titulo }</a>
-				</td>
-				<td>${produto.descricao }</td>
-				<td>${produto.paginas }</td>
-			</tr>
-		</c:forEach>
-	</table>
+	<jsp:attribute name="extraScripts">
+		<script>
+			console.log("Para renderizar um script para a página é obrigatório o uso de jsp:body e o jsp:attribute deve vir antes de jsp:body")
+		</script>
+	</jsp:attribute>
 
-</body>
-</html>
+	<jsp:body>
+		<div class="container">
+			<h1>Lista de Produtos</h1>
+		
+			<div>${sucesso }</div>
+			<div>${falha }</div>
+		
+			<table class="table table-bordered table-striped table-hover">
+				<tr>
+					<th>Título</th>
+					<th>Descrição</th>
+					<th>Páginas</th>
+				</tr>
+				<c:forEach items="${produtos }" var="produto">
+					<tr>
+						<td>
+							<a href="produtos/detalhe/${produto.id }">${produto.titulo }</a>
+						</td>
+						<td>${produto.descricao }</td>
+						<td>${produto.paginas }</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+	</jsp:body>
+</tags:pageTemplate>

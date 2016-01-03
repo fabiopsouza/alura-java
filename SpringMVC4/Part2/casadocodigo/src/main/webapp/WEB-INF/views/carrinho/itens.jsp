@@ -3,16 +3,14 @@
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
     
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Carrinho de compra</title>
-</head>
-<body>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="tags" %>
 
-	<a href='<c:url value="/carrinho/itens"/>'>Seu carrinho (${carrinhoCompras.quantidade })</a>	
+
+<tags:pageTemplate title="Carrinho de compras">
+
+	<a href='<c:url value="/carrinho"/>'>Seu carrinho (${carrinhoCompras.quantidade })</a>	
 
 	
 	<table>
@@ -51,14 +49,12 @@
 			</tr>
 			<tr>
 				<td>
-					<form action='<c:url value="/pagamento/finalizar"/>' method="POST">
+					<form:form servletRelativeAction="/pagamento/finalizar" method="POST">
 						<input type="submit" value="Finalizar compra"/>
-					</form>
+					</form:form>
 				</td>
 			</tr>
 		</tfoot>
 	</table>
-	
 
-</body>
-</html>
+</tags:pageTemplate>

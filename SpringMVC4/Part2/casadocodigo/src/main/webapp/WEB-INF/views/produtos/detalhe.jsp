@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!doctype html>
 <html lang="pt-BR">
@@ -18,8 +19,14 @@
 	<link rel="canonical" href="http://www.casadocodigo.com.br/products/livro-java8" />
 </head>
 <body class="produto">
+
 	<header role="banner" class="cabecalhoPrincipal container">
 		
+		<div>
+			<a href='<c:url value="/" />'>
+				<h1>Home</h1>
+			</a>
+		</div>		
 
 		<div id="navegacaoCabecalho" class="cabecalhoPrincipal-navegacao">
 			
@@ -36,7 +43,7 @@
 					 alt="Ir para ao topo da página">
 			</a>
 
-			<a tabindex="3" href="/cart" title="Ir para sacola de compras" class="sacola cabecalhoPrincipal-itemNavegacao">
+			<a tabindex="3" href='<c:url value="/carrinho"/>' title="Ir para sacola de compras" class="sacola cabecalhoPrincipal-itemNavegacao">
 				<svg width="28px" height="34px" viewBox="0 0 28 34" role="img" aria-labelledby="sacolaLabel" class="sacola-icone">
 					<title id="sacolaLabel">
 						Você tem 0 itens na sacola
@@ -79,7 +86,7 @@
 
 </header>
 	
-<form action='<c:url value="/carrinho/add"/>' method="POST" class="adicionarAoCarrinho">
+<form:form servletRelativeAction="/carrinho/add"  method="POST" cssClass="adicionarAoCarrinho">
 	<ul class="adicionarAoCarrinho-listaOfertas">
 	
 		<input type="hidden" value="${produto.id }" name="produtoId"/>
@@ -107,11 +114,11 @@
 			</li>
 		</c:forEach>
 	
-		<button type="submit" name="id" value="970167977" title="Compre o E-book">
-			Comprar
-		</button>
+		<button type="submit" name="id" value="970167977" title="Compre o E-book">Comprar</button>
+		
+		<!--  <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/> para form comum-->
 	</ul>
-</form>
+</form:form>
 
 	
 	<section class="conteudoDoLivro infoSection" itemprop="description">
