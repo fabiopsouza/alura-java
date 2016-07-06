@@ -23,8 +23,10 @@ public class TesteRelatorio {
 		
 		GeradorRelatorio geradorRelatorio = new GeradorRelatorio(nome  + ".jasper", params, conn);
 		geradorRelatorio.gerarPDFParaOutputStream(new FileOutputStream(nome + ".pdf"));
-		
+		geradorRelatorio.gerarXLSParaOutputStream(new FileOutputStream(nome + ".xls"));
 		conn.close();
+		
+		System.out.println("Relatório gerado com sucesso...");
 	}
 
 }

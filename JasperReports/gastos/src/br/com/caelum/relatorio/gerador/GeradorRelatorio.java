@@ -10,6 +10,7 @@ import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.export.JRXlsExporter;
 
 public class GeradorRelatorio {
 
@@ -32,7 +33,20 @@ public class GeradorRelatorio {
 			exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, outputStream);
 			exporter.exportReport();
 		}catch(JRException e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void gerarXLSParaOutputStream(OutputStream outputStream){
+		try{
+			JasperPrint jasperPrint = JasperFillManager.fillReport(this.nomeArquivo, this.parametros, this.connection);
 			
+			JRExporter exporter = new JRXlsExporter();	
+			exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+			exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, outputStream);
+			exporter.exportReport();
+		}catch(JRException e){
+			System.out.println(e.getMessage());
 		}
 	}
 	
