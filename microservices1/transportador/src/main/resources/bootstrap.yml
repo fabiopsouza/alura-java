@@ -1,6 +1,6 @@
 spring:
   application:
-    name: 'fornecedor'
+    name: 'transportador'
   profiles:
     active: default
   cloud:

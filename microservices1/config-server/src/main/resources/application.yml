@@ -1,5 +1,7 @@
 
 server:  port: 8888
   
-spring:  cloud:    config:      server:        git:          uri: https://github.com/fabiopsouza/microservices-repo
-          search-paths: fornecedor          default-label: main
+spring:  cloud:    config:      server:
+        encrypt:
+          enabled: false        git:          uri: https://github.com/fabiopsouza/microservices-repo/
+          search-paths: fornecedor, loja, transportador          default-label: main

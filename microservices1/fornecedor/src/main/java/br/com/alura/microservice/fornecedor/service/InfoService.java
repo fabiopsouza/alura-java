@@ -10,9 +10,9 @@ import br.com.alura.microservice.fornecedor.repository.InfoRepository;
 public class InfoService {
 
 	@Autowired
-	private InfoRepository repository;
+	private InfoRepository infoRepository;
 	
 	public InfoFornecedor getInfoPorEstado(String estado) {
-		return repository.findByEstado(estado);
+		return infoRepository.findByEstado(estado);
 	}
 }
