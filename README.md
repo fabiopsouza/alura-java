@@ -6,6 +6,8 @@
 - **Load Balancer**: Distribui a carga de requisições entre multiplas instâncias. **Implementação no Spring** Client Side Load Balancing (Netflix Ribbon)
 - **Spring Feign**: Mais fácil criar HTTP Client. Abstrai as requisições para outros serviços (RestTemplate). É integrado aos demais serviços do Spring Cloud
 - **Distributed tracing**: Centralizar os logs em um local (Papertrail e Kibana por exemplo) através de um appender que publica os log nessas ferramentas como se fossem eventos. **Implementação no Spring**: Spring Sleuth
+- **Circuit Breaker**: Quando a chamada para um outro microsserviço falha, um método de fallback é chamado para evitar diverssas falhas seguidas (cirquito fechado). Esse método pode ter uma mensagem de erro, ou um retorno cacheado etc... Após um determinado período de tempo, ele tenta chamar novamente o serviço para verificar se voltou a funcionar. **Implementação no Spring**: Hystrix.
+- **Bulkhead**: Divide um conjunto de threads em cada parte da aplicação. Dessa forma, uma lentidão em uma parte, não afeta todo o restante.
 
 # Produtividade com Eclipse
 
