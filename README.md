@@ -1,7 +1,5 @@
 # Produtividade com Eclipse
 
-## Atalhos
-
 - F3 -> Entra na classe
 - ctrl + pg up | pg dn -> Alterna entre abas
 - ctrl + N -> Assistente criação
@@ -22,16 +20,10 @@
 - ctrl + N >> "JUnit Test Case" -> Wizar para criar um teste unitário
 - ctrl + shift + L -> Exibe lista de atalhos
 - F7 -> Volta para o método externo no debbug
-
-## Views
-
-Declaration -> Exibe conteúdo de outra classe sem a necessidade de entrar nela
-Task List -> Lista de tarefas
-History -> Histórico de alterações do arquivo
-
-## Configurações
-
-Mostrar número das linhas -> Botão direito na barra da esquerda >> Show Line Numbers
+- Views > Declaration -> Exibe conteúdo de outra classe sem a necessidade de entrar nela
+- Views > Task List -> Lista de tarefas
+- Views > History -> Histórico de alterações do arquivo
+- Mostrar número das linhas -> Botão direito na barra da esquerda >> Show Line Numbers
 
 # Microsserviços
 
