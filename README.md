@@ -8,6 +8,8 @@
 - **Distributed tracing**: Centralizar os logs em um local (Papertrail e Kibana por exemplo) através de um appender que publica os log nessas ferramentas como se fossem eventos. **Implementação no Spring**: Spring Sleuth
 - **Circuit Breaker**: Quando a chamada para um outro microsserviço falha, um método de fallback é chamado para evitar diverssas falhas seguidas (cirquito fechado). Esse método pode ter uma mensagem de erro, ou um retorno cacheado etc... Após um determinado período de tempo, ele tenta chamar novamente o serviço para verificar se voltou a funcionar. **Implementação no Spring**: Hystrix.
 - **Bulkhead**: Divide um conjunto de threads em cada parte da aplicação. Dessa forma, uma lentidão em uma parte, não afeta todo o restante.
+- **Tratamento de Erro**: O ideal é que o microsserviço va mantendo o estado do dominio conforme seu ciclo de vida avance através de outros microsserviços. Dessa forma, caso tenha algum erro no meio do caminho é possível fazer um reprocessamento ou cancelar por exemplo. Esse controle pode ser feito automáticamente pela aplicação de acordo com alguma regra, ou pelo usuário.
+- **API Gateway**: Ponto central das requisições que redireciona para um determinado serviço de acordo com o path. Já é integrado com o Eureka para identificar os endereços.
 
 # Produtividade com Eclipse
 
