@@ -1,3 +1,12 @@
+# Microsserviços
+
+- **Conceito**: Cada serviço cuida de um contexto específico da aplicação com seu próprio estado (repositório) e se comunica com as demais aplicações através de REST, eventos etc...
+- **Service Register**: Aplicação em que as instâncias dos microsserviços se registram. A partir disso, os demais serviços conseguem se redirecionar apontando apenas para o applicationName, abstraindo o endereço. **Implementação no Spring**: Eureka
+- **Config Server**: Centraliza o controle das configurações (properties). É possível guardar no disco ou github. **Implementação no Spring**: ConfigServer
+- **Load Balancer**: Distribui a carga de requisições entre multiplas instâncias. **Implementação no Spring** Client Side Load Balancing (Netflix Ribbon)
+- **Spring Feign**: Mais fácil criar HTTP Client. Abstrai as requisições para outros serviços (RestTemplate). É integrado aos demais serviços do Spring Cloud
+- **Distributed tracing**: Centralizar os logs em um local (Papertrail e Kibana por exemplo) através de um appender que publica os log nessas ferramentas como se fossem eventos. **Implementação no Spring**: Spring Sleuth
+
 # Produtividade com Eclipse
 
 - F3 -> Entra na classe
@@ -24,12 +33,3 @@
 - Views > Task List -> Lista de tarefas
 - Views > History -> Histórico de alterações do arquivo
 - Mostrar número das linhas -> Botão direito na barra da esquerda >> Show Line Numbers
-
-# Microsserviços
-
-- **Conceito**: Cada serviço cuida de um contexto específico da aplicação com seu próprio estado (repositório) e se comunica com as demais aplicações através de REST, eventos etc...
-- **Service Register**: Aplicação em que as instâncias dos microsserviços se registram. A partir disso, os demais serviços conseguem se redirecionar apontando apenas para o applicationName, abstraindo o endereço. **Implementação no Spring**: Eureka
-- **Config Server**: Centraliza o controle das configurações (properties). É possível guardar no disco ou github. **Implementação no Spring**: ConfigServer
-- **Load Balancer**: Distribui a carga de requisições entre multiplas instâncias. **Implementação no Spring** Client Side Load Balancing (Netflix Ribbon)
-- **Spring Feign**: Mais fácil criar HTTP Client. Abstrai as requisições para outros serviços (RestTemplate). É integrado aos demais serviços do Spring Cloud
-- **Distributed tracing**: Centralizar os logs em um local (Papertrail e Kibana por exemplo) através de um appender que publica os log nessas ferramentas como se fossem eventos. **Implementação no Spring**: Spring Sleuth
