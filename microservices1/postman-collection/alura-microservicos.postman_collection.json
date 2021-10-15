@@ -1,0 +1,184 @@
+{
+	"variables": [],
+	"info": {
+		"name": "alura-microservicos",
+		"_postman_id": "02cf428c-6311-35ae-dd09-dc394ba69420",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LOJA - Compra",
+			"request": {
+				"url": "http://localhost:8080/compra",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"itens\": [\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"quantidade\": 5\n\t\t},\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"quantidade\": 1\n\t\t}\n\t],\n\t\"endereco\": {\n\t\t\"rua\": \"Rua da Maria\",\n\t\t\"numero\": 123,\n\t\t\"estado\": \"GO\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "FORNECEDOR - Info",
+			"request": {
+				"url": "http://localhost:8081/info/GO",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "EUREKA - Apps",
+			"request": {
+				"url": "http://localhost:8761/eureka/apps",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "CONFIG-SERVER - Fornecedor",
+			"request": {
+				"url": "http://localhost:8888/fornecedor/default",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "CONFIG-SERVER - Loja",
+			"request": {
+				"url": "http://localhost:8888/loja/default",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "FORNECEDOR - Produto",
+			"request": {
+				"url": "http://localhost:8081/produto/df",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "FORNECEDOR - Pedido",
+			"request": {
+				"url": "http://localhost:8081/pedido",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\"id\": 1,\n\t\"quantidade\": 5\n},\n{\n\t\"id\": 2,\n\t\"quantidade\": 1\n}\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "LOJA - Get Compra",
+			"request": {
+				"url": "http://localhost:8080/compra/25",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ZUUL - Routes",
+			"request": {
+				"url": "http://localhost:5555/actuator/routes",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "OAUTH - Token",
+			"request": {
+				"url": "http://localhost:8088/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic bG9qYTpsb2phcHdk",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "scope",
+							"value": "web",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "joao",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "joaopwd",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "OAUTH - User",
+			"request": {
+				"url": "http://localhost:8088/user",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
